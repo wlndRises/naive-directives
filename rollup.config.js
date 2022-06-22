@@ -1,4 +1,6 @@
-import resolve from 'rollup-plugin-node-resolve'
+// rollup.config.js
+import resolve from '@rollup/plugin-node-resolve'
+import buble from '@rollup/plugin-buble'
 import { terser } from 'rollup-plugin-terser'
 
 const config = {
@@ -6,8 +8,27 @@ const config = {
   external: ['vue'],
   plugins: [
     resolve(),
+    buble(),
   ],
   output: [
+    {
+      file: 'lib/index.cjs.js',
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: true
+    },
+    {
+      file: 'lib/index.cjs.min.js',
+      format: 'cjs',
+      exports: 'named',
+      plugins: [
+        terser({
+          format: {
+            comments: false
+          }
+        })
+      ]
+    },
     {
       file: 'lib/index.esm.js',
       format: 'es',
