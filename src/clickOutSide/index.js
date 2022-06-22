@@ -13,7 +13,7 @@ document.addEventListener('mouseup', (e) => {
 })
 // 是否在特殊限定范围内
 function ifInExact(exactElms, target1, taget2) {
-  for (const i = 0; i < exactElms.length; i++) {
+  for (let i = 0; i < exactElms.length; i++) {
     const elm = exactElms[i]
     if (elm.contains(target1) || elm.contains(taget2) || elm === target1) return true
   }
@@ -85,7 +85,7 @@ export default {
   unbind(el) {
     const len = nodeList.length
 
-    for (const i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
       if (nodeList[i][ctx].id === el[ctx].id) {
         nodeList.splice(i, 1)
         break
