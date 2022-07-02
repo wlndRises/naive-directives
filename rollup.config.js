@@ -5,7 +5,7 @@ import { terser } from 'rollup-plugin-terser'
 
 const config = {
   input: 'src/index.js',
-  external: ['vue'],
+  external: ['vue', 'element-ui'],
   plugins: [
     resolve(),
     buble(),

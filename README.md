@@ -1,5 +1,3 @@
-## 依赖 element-ui
-
 ## 全局注册
 ```javascript
 import Vue from 'vue'

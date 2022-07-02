@@ -1,13 +1,13 @@
-// clickOutSide
+// 扩展之后的 clickOutSide
 import clickOutSide from './clickOutSide'
 
 // 字体定时颜色
 import color from './color'
 
 // 单击/双击 拷贝 依赖 element message
-// import copy from './copy'
+import copy from './copy'
 
-// 拖拽 touch/mouse
+// 拖拽 touch/mouse 还不稳定
 // import draggable from './draggable'
 
 // 显示省略号
@@ -22,16 +22,12 @@ import expandClick from './expandClick'
 // 元素长按指令 用户需要按下并按住按钮几秒钟触发相应的事件
 import longPress from './longPress'
 
-// 元素全屏指令 依赖 element screenfull element message
-// import screenfull from './screenfull'
-
 // 元素说明指令 依赖 element el-tooltip
-// import tooltip from './tooltip'
+import tooltip from './tooltip'
 
 // 水印
 import waterMarker from './waterMarker'
 
-// 自定义指令
 const directives = {
   clickOutSide,
   color,
@@ -39,7 +35,8 @@ const directives = {
   longPress,
   waterMarker,
 }
-// 批量注册指令
+
+// 全局注册指令 均不依赖 element-ui
 export default {
   install(Vue) {
     Object.keys(directives).forEach((key) => {
@@ -51,7 +48,9 @@ export default {
 export {
   clickOutSide,
   color,
+  copy, // extra
   expandClick,
   longPress,
+  tooltip, // extra
   waterMarker,
 }
